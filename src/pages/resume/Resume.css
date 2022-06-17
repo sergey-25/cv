@@ -1,0 +1,70 @@
+/* About me section */
+
+.about_text {
+  color: darkslategray !important;
+  font: smaller !important;
+  line-height: 22px !important;
+  white-space: pre-line !important;
+}
+.resume_timeline .timeline_content .timeline_title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.resume_timeline .timeline_content .timeline_date {
+  color: darkslategray;
+}
+.resume_timeline .timeline_content .timeline_description {
+  color: gray;
+  font-size: small;
+  margin-top: 6px;
+}
+/* Services */
+.service {
+  height: 100%;
+  text-align: center;
+}
+
+.service_icon > .MuiSvgIcon-root {
+  font-size: 46px;
+  margin-left: 0;
+  font-weight: 300;
+  color: darkslategray;
+}
+.service .service_title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 35px !important;
+  text-align: center !important;
+}
+.service .service_description {
+  color: #989898 !important;
+  border-color: var(--main-color) !important;
+  margin-right: 5px !important;
+  text-align: center !important;
+}
+/* Skills */
+.skills {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 0px 48px 0px rgba(4, 6, 4, 0.08) !important;
+  min-height: 186px;
+  height: 100%;
+}
+.skills .skills_title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 35px !important;
+}
+.skills .skills_description {
+  display: flex !important;
+  align-items: center !important;
+  color: #989898 !important;
+  font-weight: 400 !important;
+  line-height: 18px !important;
+}
+.skills .skills_description .timeline_dot {
+    /* color: #000 !important; */
+    border-color: var(--main-color) !important;
+    padding: 2px !important;
+    margin-right: 5px !important;
+}
