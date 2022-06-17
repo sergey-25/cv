@@ -2,27 +2,27 @@ import React from "react";
 import './Header.css'
 import resumeData from "../../utils/resumeData";
 import CustomButton from "../button/CustomButton";
-import { Link, NavLink,  useLocation,
+import { NavLink,  useLocation,
     useNavigate,
     useParams } from "react-router-dom";
 import {
   HomeRounded,
-  SchoolRounded,
-  WorkRounded,
-  Facebook,
-  Twitter,
-  LinkedIn,
-  GitHub,
+  // SchoolRounded,
+  // WorkRounded,
+  // Facebook,
+  // Twitter,
+  // LinkedIn,
+  // GitHub,
   Telegram,
 } from "@mui/icons-material";
 import {
-  Button,
-  Form,
-  FotmContol,
+  // Button,
+  // Form,
+  // FotmContol,
   Nav,
   Navbar,
-  NavDropdown,
-  Container,
+  // NavDropdown,
+  // Container,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -67,7 +67,7 @@ function Header(props) {
               as={NavLink}
               to="/"
               className={
-                pathName == "/" ? "active" : "header_link"
+                pathName === "/" ? "active" : "header_link"
               }
             >
               Resume
@@ -79,7 +79,7 @@ function Header(props) {
               as={NavLink}
               to="/portfolio"
               className={
-                pathName == "/portfolio" ? "header_link_active" : "header_link"
+                pathName === "/portfolio" ? "header_link_active" : "header_link"
               }
             >
               Portfolio
@@ -91,6 +91,7 @@ function Header(props) {
                 key={index}
                 href={resumeData.socials[key].link}
                 target="_blank"
+                rel="noreferrer"
               >
                 {resumeData.socials[key].icon}
               </a>
