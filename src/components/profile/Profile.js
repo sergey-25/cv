@@ -8,7 +8,9 @@ import { Typography } from "@material-ui/core";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import CustomButton from "../button/CustomButton";
-// import { PDFDownloadLink } from "@react-pdf/renderer";
+import html2canvas from 'html2canvas';
+import {jsPDF} from 'jspdf'
+
 
 const CustomTimelineItem = ({ title, text, link }) => {
   return(
@@ -33,15 +35,25 @@ const CustomTimelineItem = ({ title, text, link }) => {
   )
 };
 
-function Profile() {
-  return (
+const Profile = ({rootElementId, downloadFileName}) => {
+    const downloadFileDocument =() =>{
+        const input = document.getElementById(rootElementId)
+        html2canvas(input).then((canvas)=>{
+            const imgData = canvas.toDataURL('image/png')
+            const pdf = new jsPDF('p',"pt", [canvas.width, canvas.height])
+            pdf.addImage(imgData, "JPEG",-10,-40)
+            pdf.save(`${downloadFileName}`);
+        })
+    }
+
+    return (
     <div className="profile container_shadow">
       <div className="profile_name">
         <Typography className="name">{resumeData.name}</Typography>
         <Typography className="title">{resumeData.title}</Typography>
       </div>
       <figure className="profile_img">
-        <img src={require("../../assets/images/wee.jpg")} alt="" />
+        <img src={require("../../assets/images/me.jpg")} alt="" />
       </figure>
       <div className="profile_info">
         <CustomTimeline
@@ -56,7 +68,7 @@ function Profile() {
         </CustomTimeline>
         <br />
      <div className="button_container">
-     <CustomButton text = {'Download CV'} icon ={<GetAppIcon/>}>
+     <CustomButton onClick={downloadFileDocument} text = {'Download CV'} icon ={<GetAppIcon/>}>
      </CustomButton>
      </div>
       </div>

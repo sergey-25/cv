@@ -1,28 +1,25 @@
-// import React from 'react';
-// import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import React, {useState} from 'react';
+import html2canvas from 'html2canvas';
+import {jsPDF} from 'jspdf'
+import CustomButton from '../components/button/CustomButton'
 
+const ExportToPdf = ({rootElementId, downloadFileName}) => {
+    const downloadFileDocument =() =>{
+        const input = document.getElementById(rootElementId)
+        html2canvas(input).then((canvas)=>{
+            const imgData = canvas.toDataURL('image/png')
+            const pdf = new jsPDF("p", "pt", "a4")
+            pdf.addImage(imgData, "JPEG", 10, 50)
+            pdf.save(`${downloadFileName}`);
+        })
+    }
+    return (
+        <div>
+            <CustomButton onClick={downloadFileDocument} text={"fsgdsgdsgdsf"}></CustomButton>
 
-// const styles = StyleSheet.create({
-//     page: {
-//       flexDirection: 'row',
-//       backgroundColor: '#E4E4E4'
-//     },
-//     section: {
-//       margin: 10,
-//       padding: 10,
-//       flexGrow: 1
-//     }
-//   });
-//   const ExportToPdf = () => (
-//     <Document>
-//       <Page size="A4" style={styles.page}>
-//         <View style={styles.section}>
-//           <Text>Section #1</Text>
-//         </View>
-//         <View style={styles.section}>
-//           <Text>Section #2</Text>
-//         </View>
-//       </Page>
-//     </Document>
-//   );
-//   export default ExportToPdf;
+        </div>
+
+    );
+}
+
+export default ExportToPdf;

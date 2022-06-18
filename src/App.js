@@ -7,13 +7,15 @@ import Profile from "./components/profile/Profile";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Resume from "./pages/resume/Resume";
 import Footer from "./components/footer/Footer";
+import ExportToPdf from "./utils/ExportToPdf"
 
 function App() {
   return (
-    <Container className={"top_60"}>
+    <Container id="pagetodownload" className={"top_60"}>
       <Grid container spacing={7}>
         <Grid item xs={12} sm={12} md={4} lg={3}>
-          <Profile />
+            <Profile rootElementId={"pagetodownload"} downloadFileName="Serhii_Kurylenko"/>
+
         </Grid>
         <Grid item xs>
           <Router>
