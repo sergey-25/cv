@@ -7,23 +7,13 @@ import { NavLink,  useLocation,
     useParams } from "react-router-dom";
 import {
   HomeRounded,
-  // SchoolRounded,
-  // WorkRounded,
-  // Facebook,
-  // Twitter,
-  // LinkedIn,
-  // GitHub,
   Telegram,
 } from "@mui/icons-material";
 import {
-  // Button,
-  // Form,
-  // FotmContol,
   Nav,
   Navbar,
-  // NavDropdown,
-  // Container,
 } from "react-bootstrap";
+import {HashLink as Link} from 'react-router-hash-link';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -40,7 +30,7 @@ function withRouter(Component) {
         />
       );
     }
-  
+
     return ComponentWithRouterProp;
   }
 
@@ -61,29 +51,40 @@ function Header(props) {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="header_left">
-            {/* Resume Link */}
+            {/* About me */}
 
-            <Nav.Link
-              as={NavLink}
-              to="/"
-              className={
-                pathName === "/" ? "active" : "header_link"
-              }
-            >
-              Resume
-            </Nav.Link>
-
+            <Link to="#About-me"  className={
+              pathName === "/" ? "active" : "header_link"
+            }>About me
+              {/*<Nav.Link*/}
+              {/*    as={NavLink}*/}
+              {/*    to="/"*/}
+              {/*    className={*/}
+              {/*      pathName === "/" ? "active" : "header_link"*/}
+              {/*    }*/}
+              {/*>*/}
+              {/*  About me*/}
+              {/*</Nav.Link>*/}
+            </Link>
+<Link to="#edu"  className={
+  pathName === "/" ? "active" : "header_link"}>
+      Education and experiences
+</Link>
+            <Link to="#skills"  className={
+              pathName === "/" ? "active" : "header_link"}>
+              Skills
+            </Link>
             {/* Portfolio Link */}
 
-            <Nav.Link
-              as={NavLink}
-              to="/portfolio"
-              className={
-                pathName === "/portfolio" ? "header_link_active" : "header_link"
-              }
-            >
-              Portfolio
-            </Nav.Link>
+            {/*<Nav.Link*/}
+            {/*  as={NavLink}*/}
+            {/*  to="/portfolio"*/}
+            {/*  className={*/}
+            {/*    pathName === "/portfolio" ? "header_link_active" : "header_link"*/}
+            {/*  }*/}
+            {/*>*/}
+            {/*  Portfolio*/}
+            {/*</Nav.Link>*/}
           </Nav>
           <div className="header_right">
             {Object.keys(resumeData.socials).map((key, index) => (
